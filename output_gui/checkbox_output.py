@@ -4,9 +4,14 @@ import tkinter as tk
 def create_checkbox_list(words):
 
     def submit():
-        selected_words = [word for i, word in enumerate(words) if checkboxes[i].get() == 1]
+        # selected_words.append([word for i, word in enumerate(words) if checkboxes[i].get() == 1])
+        # selected_words = [word for i, word in enumerate(words) if checkboxes[i].get() == 1]
+        for i, word in enumerate(words):
+            if checkboxes[i].get() == 1:
+                selected_words.append(word)
+
         window.destroy()
-        return selected_words
+        # return selected_words
 
     window = tk.Tk()
     window.geometry("300x200")
@@ -29,6 +34,6 @@ def create_checkbox_list(words):
 # Example usage
 
 words = ["apple", "banana", "cherry", "durian"]
-
-selected_words = create_checkbox_list(words)
-print(selected_words)
+selected_words = []
+_words = create_checkbox_list(words)
+print(_words)
